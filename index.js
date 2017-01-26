@@ -289,16 +289,13 @@ function receivedMessage(event) {
     // the text we received.
     var messageTextLowerCase = messageText.toLowerCase();
     if (messageTextLowerCase.includes("location")){
-    sendLocationMessage(senderID);
-    break;    
+    sendLocationMessage(senderID);    
     }
     else if (messageTextLowerCase.includes("range")){
     sendRangeMessage(SenderID);
-    break;
     }
     else if (messageTextLowerCase.includes("maintenance")){
     sendMaintenanceMessage(SenderID);
-    break;
     }
     switch (messageText) {
       case 'location':
