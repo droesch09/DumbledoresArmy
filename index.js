@@ -35,7 +35,7 @@ const APP_SECRET = "1ee6b32f987966868bdf03194435ebfa"
 const VALIDATION_TOKEN = "DumbledoresArmy"
 
 // Generate a page access token for your page from the App Dashboard
-const PAGE_ACCESS_TOKEN = "EAAKI86O7CKMBALtPvK3RldSuHZBwMdFJZBDBIhcngYVWg1mRURo01pNLHlAZCeDZAhBhkMS3DqtChcfZBoF0ef4svZA0Vfl4vPoWaZCe5AZAMqWEVvBNNFCOWuwWyzZBldwAvCdwjoDLjDS3JHR6lWMeyZC4wONQyio2j3Ts67Ds7aKQZDZD"
+const PAGE_ACCESS_TOKEN = "EAAKI86O7CKMBAF5MpWlrqTFTxZBV3KMcwPf86DEBClrsu1QhZAZC9IOnh8ToM48LZB7GfDTxK7vrAW2vkEZAHw22aelNwH9A2uEbYJLjk74TLDBV6We0CXr3bJKnSAR6II8VrnXdxLcGWuYsDyy5YgpLAGxjjXBYpf4jJ3q97UgZDZD"
 
 // URL where the app is running (include protocol). Used to point to scripts and 
 // assets located at this address. 
