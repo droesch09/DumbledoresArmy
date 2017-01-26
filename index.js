@@ -616,9 +616,6 @@ function sendRangeMessage(recipientId){
 
   callSendAPI(messageData);
     
-    setTimeout(function(){
-  sendBerufsausbildungMessage6(recipientId);
-    }, 1000);
 }
 
  function sendLocationMessage(recipientId){
@@ -650,9 +647,6 @@ function sendRangeMessage(recipientId){
 
   callSendAPI(messageData);
     
-    setTimeout(function(){
-  sendBerufsausbildungMessage6(recipientId);
-    }, 1000);
 }
 
 function sendMaintenanceMessage(recipientId){
@@ -683,10 +677,7 @@ function sendMaintenanceMessage(recipientId){
   };
 
   callSendAPI(messageData);
-    
-    setTimeout(function(){
-  sendBerufsausbildungMessage6(recipientId);
-    }, 1000);
+
 }
 
 
