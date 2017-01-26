@@ -288,15 +288,15 @@ function receivedMessage(event) {
     // keywords and send back the corresponding example. Otherwise, just echo
     // the text we received.
     var messageTextLowerCase = messageText.toLowerCase();
-    if messageTextLowerCase.includes("location"){
+    if (messageTextLowerCase.includes("location")){
     sendLocationMessage(senderID);
     break;    
     }
-    else if messageTextLowerCase.includes("range"){
+    else if (messageTextLowerCase.includes("range")){
     sendRangeMessage(SenderID);
     break;
     }
-    else if messageTextLowerCase.includes("maintenance"){
+    else if (messageTextLowerCase.includes("maintenance")){
     sendMaintenanceMessage(SenderID);
     break;
     }
