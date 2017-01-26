@@ -15,6 +15,7 @@
   "author": "Facebook",
   "license": "ISC",
   "dependencies": {
+    "alexa-sdk": "^1.0.6",
     "body-parser": "^1.15.0",
     "config": "^1.20.4",
     "ejs": "^2.4.2",
