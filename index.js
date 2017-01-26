@@ -624,7 +624,7 @@ function sendRangeMessage(recipientId){
       id: recipientId
     },
     message: {
-      text: "You can go 50km with your Battery",
+      text: "I'm right next to you",
       quick_replies: [
         {
           "content_type":"text",
@@ -655,7 +655,7 @@ function sendMaintenanceMessage(recipientId){
       id: recipientId
     },
     message: {
-      text: "You can go 50km with your Battery",
+      text: "I feel great. There ist absolutely nothing to worry about",
       quick_replies: [
         {
           "content_type":"text",
