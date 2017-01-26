@@ -261,6 +261,18 @@ function receivedMessage(event) {
         sendBackMessage(senderID);
         break;
         
+              case 'sendStartRange':
+        sendRangeMessage(senderID);
+        break;
+        
+              case 'sendStartLocation':
+        sendLocationMessage(senderID);
+        break;
+        
+              case 'sendStartMaintenance':
+        sendMaintenanceMessage(senderID);
+        break;
+        
         //TODO
       default:
        console.log("default")
@@ -582,7 +594,23 @@ function sendRangeMessage(recipientId){
     },
     message: {
       text: "You can go 50km with your Battery",
-      metadata: "DEVELOPER_DEFINED_METADATA"
+      quick_replies: [
+        {
+          "content_type":"text",
+          "title":"Location",
+          "payload":"sendStartLocation"
+        },
+        {
+          "content_type":"text",
+          "title":"Maintenance",
+          "payload":"sendStartMaintenance"
+        },
+        {
+          "content_type":"text",
+          "title":"Back",
+          "payload":"sendStartBack"
+        }
+      ]
     }
   };
 
@@ -593,817 +621,73 @@ function sendRangeMessage(recipientId){
     }, 1000);
 }
 
-function sendBerufsausbildungMessage6(recipientId) {
-  var messageData = {
+ function sendLocationMessage(recipientId){
+    var messageData = {
     recipient: {
       id: recipientId
     },
     message: {
-      attachment: {
-        type: "template",
-        payload: {
-          template_type: "generic",
-          elements: [{
-            title: "JobLocator",
-            subtitle: "Hier geht's zum JobLocator",               
-            image_url: "https://jobs.porsche.com/cust/beesite/images/visual_porsche.jpg",
-            buttons: [{
-              type: "web_url",
-              url: "https://jobs.porsche.com/index.php",
-              title: "Gehe zum Job Locator"
-            }],
-          }]
+      text: "You can go 50km with your Battery",
+      quick_replies: [
+        {
+          "content_type":"text",
+          "title":"Range",
+          "payload":"sendStartRange"
+        },
+        {
+          "content_type":"text",
+          "title":"Maintenance",
+          "payload":"sendStartMaintenance"
+        },
+        {
+          "content_type":"text",
+          "title":"Back",
+          "payload":"sendStartBack"
         }
-      }
-    }
-  }
-    callSendAPI(messageData);
-          setTimeout(function(){
-  sendBerufsausbildungMessage2(recipientId);
-    }, 1000);
-}
-
-function sendBerufsausbildungMessage2(recipientId){
-    var messageData = {
-    recipient: {
-      id: recipientId
-    },
-    message: {
-      text: "Die Anforderungen unterscheiden sich. Für manche Ausbildungsberufe genügt ein guter Hauptschullabschluss aus, für andere solltest du die Mittlere Reife mitbringen.",
-      metadata: "DEVELOPER_DEFINED_METADATA"
-    }
-  };
-
-  callSendAPI(messageData);
-    setTimeout(function(){
-  sendBerufsausbildungMessage3(recipientId);
-    }, 1000);
-}
-
-function sendBerufsausbildungMessage3(recipientId){
-    var messageData = {
-    recipient: {
-      id: recipientId
-    },
-    message: {
-      text: "Die Ausbildung bei Porsche dauert i.d.R. 3 Jahre. Ausbildungsstart ist jeweils im September, bewerben solltest du dich aber bereits 1 Jahr vorab.",
-      metadata: "DEVELOPER_DEFINED_METADATA"
+      ]
     }
   };
 
   callSendAPI(messageData);
     
-      setTimeout(function(){
-  sendBerufsausbildungMessage4(recipientId);
+    setTimeout(function(){
+  sendBerufsausbildungMessage6(recipientId);
     }, 1000);
 }
 
-//function sendBerufsausbildungMessage4(recipientId){
-//    var messageData = {
-//    recipient: {
-//      id: recipientId
-//    },
-//    message: {
-//      text: "Sieh dir einen Film mit unseren Azubis an oder erfahre mehr über unser modernes Ausbildungszentrum auf unserer Webseite. Reinschauen lohnt sich! LINK",
-//      metadata: "DEVELOPER_DEFINED_METADATA"
-//    }
-//  };
-//
-//  callSendAPI(messageData);
-//      setTimeout(function(){
-//  sendBerufsausbildungMessage5(recipientId);
-//    }, 1000);
-//}
-
-function sendBerufsausbildungMessage4(recipientId) {
-  var messageData = {
-    recipient:{
-      id: recipientId
-    },
-    message: {
-      attachment: {
-        type: "template",
-        payload: {
-          template_type: "generic",
-          elements: [{
-            title: "Alltag bei Porsche",
-            subtitle: "Sieh dir einen Film mit unseren Azubis an oder erfahre mehr über unser modernes Ausbildungszentrum auf unserer Webseite. Reinschauen lohnt sich!",               
-            image_url: "http://files2.porsche.com/filestore/image/multimedia/none/rd-2015-jobsandcareer-profile-teaser/preview/0a2b2863-712d-11e6-9a3c-0019999cd470;s3/porsche-preview.jpg",
-            buttons: [{
-              type: "web_url",
-              url: "http://www.porsche.com/filestore/video/multimedia/de/jobsandcareer-everyday-life-at-porsche/video-mp4/6e54dd15-5b16-11e6-873a-0019999cd470/porsche-video.mp4",
-              title: "Gehe zum Video"
-            }],
-          }]
-        }
-      }
-    }
-  }
-    callSendAPI(messageData);
-          setTimeout(function(){
-  sendBerufsausbildungMessage5(recipientId);
-    }, 1000);
-}
-
-
-function sendBerufsausbildungMessage5(recipientId){
+function sendMaintenanceMessage(recipientId){
     var messageData = {
     recipient: {
       id: recipientId
     },
     message: {
-      text: "Möchtest du weitere Informationen zu anderen Themen?",
+      text: "You can go 50km with your Battery",
       quick_replies: [
         {
           "content_type":"text",
-          "title":"Berufsausbildung",
-          "payload":"sendStartMessageBerufsausbildung"
+          "title":"Range",
+          "payload":"sendStartRange"
         },
         {
           "content_type":"text",
-          "title":"Duales Studium",
-          "payload":"sendStartMessageDualesStudium"
+          "title":"Location",
+          "payload":"sendStartLocation"
         },
         {
           "content_type":"text",
-          "title":"Praktikum",
-          "payload":"sendStartMessagePraktikum"
-        },
-        {
-          "content_type":"text",
-          "title":"Trainee Programm",
-          "payload":"sendStartMessageTraineeProgramm"
-        },
-        {
-          "content_type":"text",
-          "title":"Direkteinstieg",
-          "payload":"sendStartMessageDirekteinstieg"
-        },
-        {
-          "content_type":"text",
-          "title":"Bewerbungsprozess",
-          "payload":"sendStartMessageBewerbung"
-        },
-        {
-          "content_type":"text",
-          "title":"Termine & Events",
-          "payload":"sendStartMessageTermineUndEvents"
+          "title":"Back",
+          "payload":"sendStartBack"
         }
       ]
     }
   };
 
   callSendAPI(messageData);
-}
-
-
-function sendDualesStudiumMessage(recipientId){
-      var messageData = {
-    recipient: {
-      id: recipientId
-    },
-    message: {
-      text: "Eine gute Wahl. Das duale Studium ist abwechslungsreich und beinhaltet dreimonatige Theoriephasen an der dualen Hochschule \(DHBW\) sowie Praxisphasen bei Porsche.",
-      quick_replies: [
-        {
-          "content_type":"text",
-          "title":"Aufbau und Inhalte", 
-          "payload":"sendDualesStudiumMessageAufbauUndInhalte"
-        },
-        {
-          "content_type":"text",
-          "title":"Anforderungen",
-          "payload":"sendDualesStudiumMessageAnforderungen"
-        },
-        {
-          "content_type":"text",
-          "title":"Bewerbung",
-          "payload":"sendDualesStudiumMessageBewerbungsprozess"
-        },
-        {
-          "content_type":"text",
-          "title":"Alle Informationen",
-          "payload":"sendDualesStudiumMessageAlle"
-        },
-        {
-          "content_type":"text",
-          "title":"Zurück",
-          "payload":"sendZurueckMessage"
-        }
-      ]
-    }
-  };
-
-  callSendAPI(messageData);
-}
-
-
-function sendDualesStudiumAufbauMessage(recipientId){
-      var messageData = {
-    recipient: {
-      id: recipientId
-    },
-    message: {
-      text: "Alle angebotenen Studiengänge beginnen im September, dauern 3 Jahre und führen mit Bestehen der Abschlussprüfung zum international anerkannten Bachelor Abschluss.\n\nWährend des Studiums bei Porsche sind auch Auslandsaufenthalte vorgesehen, beispielsweise bei einer unserer internationalen Tochtergesellschaften.",
-      quick_replies: [
-        {
-          "content_type":"text",
-          "title":"Anforderungen",
-          "payload":"sendDualesStudiumMessageAnforderungen"
-        },
-        {
-          "content_type":"text",
-          "title":"Bewerbung",
-          "payload":"sendDualesStudiumMessageBewerbungsprozess"
-        },
-        {
-          "content_type":"text",
-          "title":"Alle Informationen",
-          "payload":"sendDualesStudiumMessageAlle"
-        },
-        {
-          "content_type":"text",
-          "title":"Zurück",
-          "payload":"sendZurueckMessage"
-        }
-      ]
-    }
-  };
-
-  callSendAPI(messageData);
-}
-
-function sendDualesStudiumAnforderungenMessage(recipientId){
-      var messageData = {
-    recipient: {
-      id: recipientId
-    },
-    message: {
-      text: "Für ein duales Studium solltest du über die allgemeine oder fachgebundene Hochschulreife mit sehr guten Leistungen in Deutsch, Mathematik und Physik verfügen",
-      quick_replies: [
-        {
-          "content_type":"text",
-          "title":"Aufbau und Inhalt",
-          "payload":"sendDualesStudiumMessageAufbauUndInhalte"
-        },
-        {
-          "content_type":"text",
-          "title":"Bewerbung",
-          "payload":"sendDualesStudiumMessageBewerbungsprozess"
-        },
-        {
-          "content_type":"text",
-          "title":"Alle Informationen",
-          "payload":"sendDualesStudiumMessageAlle"
-        },
-        {
-          "content_type":"text",
-          "title":"Zurück",
-          "payload":"sendZurueckMessage"
-        }
-      ]
-    }
-  };
-
-  callSendAPI(messageData);
-}
-
-function sendDualesStudiumBewerbungMessage(recipientId){
-      var messageData = {
-    recipient: {
-      id: recipientId
-    },
-    message: {
-      text: "Bewerbungen sind ein Jahr vor Studienbeginn möglich. Eine Übersicht über alle bei Porsche angebotenen Studiengänge findest du hier: LINK\n\n Wie du dich für das duale Studium bei uns bewerben kannst? Hier findest du weitere Infos: LINK",
-      quick_replies: [
-        {
-          "content_type":"text",
-          "title":"Aufbau und Inhalt",
-          "payload":"sendDualesStudiumMessageAufbauUndInhalte"
-        },
-        {
-          "content_type":"text",
-          "title":"Anforderungen",
-          "payload":"sendDualesStudiumMessageAnforderungen"
-        },
-        {
-          "content_type":"text",
-          "title":"Bewerbung",
-          "payload":"sendDualesStudiumMessageBewerbungsprozess"
-        },
-        {
-          "content_type":"text",
-          "title":"Alle Informationen",
-          "payload":"sendDualesStudiumMessageAlle"
-        },
-        {
-          "content_type":"text",
-          "title":"Zurück",
-          "payload":"sendZurueckMessage"
-        }
-      ]
-    }
-  };
-
-  callSendAPI(messageData);
-}
-
-
-
-function sendDualesStudiumBewerbungsprozessMessage2(recipientId){
-      var messageData = {
-    recipient: {
-      id: recipientId
-    },
-    message: {
-      text: "Möchtest du weitere Informationen zum Dualen Studium?",
-      quick_replies: [
-        {
-          "content_type":"text",
-          "title":"Aufbau und Inhalt",
-          "payload":"sendDualesStudiumMessageAufbauUndInhalte"
-        },
-        {
-          "content_type":"text",
-          "title":"Anforderungen",
-          "payload":"sendDualesStudiumMessageAnforderungen"
-        },
-        {
-          "content_type":"text",
-          "title":"Bewerbung",
-          "payload":"sendDualesStudiumMessageBewerbung"
-        },
-        {
-          "content_type":"text",
-          "title":"Alle Informationen",
-          "payload":"sendDualesStudiumMessageAlle"
-        },
-        {
-          "content_type":"text",
-          "title":"Zurück",
-          "payload":"sendZurueckMessage"
-        }
-      ]
-    }
-  };
-
-  callSendAPI(messageData);
-}
-
-function sendDualesStudiumBewerbungsprozessMessage(recipientId) {
-  var messageData = {
-    recipient: {
-      id: recipientId
-    },
-    message: {
-      attachment: {
-        type: "template",
-        payload: {
-          template_type: "generic",
-          elements: [{
-            title: "Bewerbungsprozess",
-            subtitle: "Wie du dich für das duale Studium bei uns bewerben kannst? Hier findest du weiter Infos.!",               
-            image_url: "http://files3.porsche.com/filestore/image/multimedia/none/rd-2015-jobsandcareer-application-banner/normal/ad637cef-abab-11e4-b849-001a64c55f5c/porsche-normal.jpg",
-            buttons: [{
-              type: "web_url",
-              url: "http://www.porsche.com/germany/aboutporsche/jobs/application/",
-              title: "Gehe zu Bewerbungsprozess"
-            }],
-          }, 
-                    {
-            title: "Studiengänge",
-            subtitle: "Eine Übersicht über alle Studiengänge findest du hier.",               
-            image_url: "http://files3.porsche.com/filestore/image/multimedia/none/rd-2015-jobsandcareer-yourentry-pupils-study-banner/normal/d779715f-abb2-11e4-b849-001a64c55f5c/porsche-normal.jpg",
-            buttons: [{
-              type: "web_url",
-              url: "http://www.porsche.com/germany/aboutporsche/jobs/pupils/study/",
-              title: "Gehe zu Studiengänge"
-            }],
-          }]
-        }
-      }
-    }
-  }
-    callSendAPI(messageData);
-          setTimeout(function(){
-  sendDualesStudiumBewerbungsprozessMessage2(recipientId);
+    
+    setTimeout(function(){
+  sendBerufsausbildungMessage6(recipientId);
     }, 1000);
 }
-
-
-
-function sendPraktikumMessage(recipientId){
-      var messageData = {
-    recipient: {
-      id: recipientId
-    },
-    message: {
-      text: "Sehr gut! Durch ein Praktikum bei Porsche kannst du schon während dem Studium sehen, wo die berufliche Reise hingehen kann.",
-      quick_replies: [
-        {
-          "content_type":"text",
-          "title":"Einsatzbereiche", 
-          "payload":"sendPraktikumMessageEinsatzbereiche"
-        },
-        {
-          "content_type":"text",
-          "title":"Dauer",
-          "payload":"sendPraktikumMessageDauer"
-        },
-        {
-          "content_type":"text",
-          "title":"Anforderungen",
-          "payload":"sendPraktikumMessageAnforderungen"
-        },
-        {
-          "content_type":"text",
-          "title":"Alle Informationen",
-          "payload":"sendPraktikumMessageAlle"
-        },
-        {
-          "content_type":"text",
-          "title":"Bewerbung",
-          "payload":"sendPraktikumMessageBewerbung"
-        }
-      ]
-    }
-  };
-
-  callSendAPI(messageData);
-}
-
-function sendPraktikumEinsatzbereicheMessage(recipientId){
-      var messageData = {
-    recipient: {
-      id: recipientId
-    },
-    message: {
-      text: "Ob beispielsweise in der Entwicklung, der IT, im Vertrieb oder der Produktion - Praktika sind in nahezu allen Unternehmensbereichen möglich.",
-      quick_replies: [
-        {
-          "content_type":"text",
-          "title":"Dauer",
-          "payload":"sendPraktikumMessageDauer"
-        },
-        {
-          "content_type":"text",
-          "title":"Anforderungen",
-          "payload":"sendPraktikumMessageAnforderungen"
-        },
-        {
-          "content_type":"text",
-          "title":"Bewerbung",
-          "payload":"sendPraktikumMessageBewerbung"
-        },
-          {
-          "content_type":"text",
-          "title":"Alle Informationen",
-          "payload":"sendPraktikumMessageAlle"
-        },
-        {
-          "content_type":"text",
-          "title":"Zurück",
-          "payload":"sendZurueckMessage"
-        }
-      ]
-    }
-  };
-
-  callSendAPI(messageData);
-}
-
-function sendPraktikumDauerMessage(recipientId){
-      var messageData = {
-    recipient: {
-      id: recipientId
-    },
-    message: {
-      text: "Für ein Pratikum sind mindestens 3 bis 6 Monate vorgesehen. Kürzere Praktika in den Semester- oder Sommerferien bieten wir leider nicht an",
-      quick_replies: [
-        {
-          "content_type":"text",
-          "title":"Einsatzbereiche",
-          "payload":"sendPraktikumMessageEinsatzbereiche"
-        },
-        {
-          "content_type":"text",
-          "title":"Anforderungen",
-          "payload":"sendPraktikumMessageAnforderungen"
-        },
-        {
-          "content_type":"text",
-          "title":"Bewerbung",
-          "payload":"sendPraktikumMessageBewerbung"
-        },
-          {
-          "content_type":"text",
-          "title":"Alle Informationen",
-          "payload":"sendPraktikumMessageAlle"
-        },
-        {
-          "content_type":"text",
-          "title":"Zurück",
-          "payload":"sendZurueckMessage"
-        }
-      ]
-    }
-  };
-
-  callSendAPI(messageData);
-}
-
-
-function sendPraktikumAnforderungenMessage(recipientId){
-      var messageData = {
-    recipient: {
-      id: recipientId
-    },
-    message: {
-      text: "Der erfolgreiche Abschluss von mindestens 3 Studiensemestern ist Voraussetzung für ein Praktikum bei Porsche.\n\n Du solltest während des Praktikums entweder an deiner Hochschule eingeschrieben sein oder dich zwischen deinem Bachelor- und einem geplanten Masterstudium befinden.",
-      quick_replies: [
-        {
-          "content_type":"text",
-          "title":"Einsatzbereiche",
-          "payload":"sendPraktikumMessageEinsatzbereiche"
-        },
-        {
-          "content_type":"text",
-          "title":"Dauer",
-          "payload":"sendPraktikumMessageDauer"
-        },
-        {
-          "content_type":"text",
-          "title":"Bewerbung",
-          "payload":"sendPraktikumMessageBewerbung"
-        },
-          {
-          "content_type":"text",
-          "title":"Alle Informationen",
-          "payload":"sendPraktikumMessageAlle"
-        },
-        {
-          "content_type":"text",
-          "title":"Zurück",
-          "payload":"sendZurueckMessage"
-        }
-      ]
-    }
-  };
-
-  callSendAPI(messageData);
-}
-
-function sendPraktikumBewerbungMessage(recipientId){
-      var messageData = {
-    recipient: {
-      id: recipientId
-    },
-    message: {
-      text: "Bewirb dich bitte online und bereits ein halbes Jahr Jahr vor dem geplanten Start. Alle offenen Stellenangebote für Praktika gibt es hier: LINK",
-      quick_replies: [
-        {
-          "content_type":"text",
-          "title":"Einsatzbereiche",
-          "payload":"sendPraktikumMessageEinsatzbereiche"
-        },
-        {
-          "content_type":"text",
-          "title":"Dauer",
-          "payload":"sendPraktikumMessageDauer"
-        },
-        {
-          "content_type":"text",
-          "title":"Anforderungen",
-          "payload":"sendPraktikumMessageAnforderungen"
-        },
-          {
-          "content_type":"text",
-          "title":"Alle Informationen",
-          "payload":"sendPraktikumMessageAlle"
-        },
-        {
-          "content_type":"text",
-          "title":"Zurück",
-          "payload":"sendZurueckMessage"
-        }
-      ]
-    }
-  };
-
-  callSendAPI(messageData);
-}
-
-function sendTraineeMessage(recipientId){
-      var messageData = {
-    recipient: {
-      id: recipientId
-    },
-    message: {
-      text: "Das internationale Porsche Trainee Programm startet bei uns immer im Herbst eine Jahres und dauert 12 Monate.",
-      quick_replies: [
-        {
-          "content_type":"text",
-          "title":"Inhalte", 
-          "payload":"sendTraineeMessageInhalt"
-        },
-        {
-          "content_type":"text",
-          "title":"Bewerbung",
-          "payload":"sendTraineeMessageBewerbung"
-        },
-          {
-          "content_type":"text",
-          "title":"Alle Informationen",
-          "payload":"sendTraineeMessageAlle"
-        }
-      ]
-    }
-  };
-
-  callSendAPI(messageData);
-}
-
-function sendTraineeInhaltMessage(recipientId){
-      var messageData = {
-    recipient: {
-      id: recipientId
-    },
-    message: {
-      text: "Als Trainee erwarten dich abwechslungsreiche Monate. Das Programm sieht Einsätze in verschiedenen Fachbereichen sowie in einer internationalen Tochtergesellschaft vor.\n\n Darüber hinaus kannst du in der Produktion mit anpacken und erhälst in einem Porsche Zentrum weitere spannende Einblicke.\n\n Du sammelst also vielfältige Erfahrungen, während dir ein persönlicher Mentor aus der Führungsebene unterstützend zur Seite steht.",
-      quick_replies: [
-        {
-          "content_type":"text",
-          "title":"Bewerbung",
-          "payload":"sendTraineeMessageBewerbung"
-        },
-          {
-          "content_type":"text",
-          "title":"Alle Informationen",
-          "payload":"sendTraineeMessageAlle"
-        },
-        {
-          "content_type":"text",
-          "title":"Zurück",
-          "payload":"sendZurueckMessage"
-        }
-      ]
-    }
-  };
-
-  callSendAPI(messageData);
-}
-
-function sendTraineeBewerbungMessage(recipientId){
-      var messageData = {
-    recipient: {
-      id: recipientId
-    },
-    message: {
-      text: "In der Regel kannst du dich etwa 6 Monate vor Beginn des Programms bewerben. Unser Job Abo informiert dich, sobald neue Trainee-Stellen ausgeschrieben werden. LINK ",
-      quick_replies: [
-        {
-          "content_type":"text",
-          "title":"Inhalt",
-          "payload":"sendTraineeMessageInhalt"
-        },
-          {
-          "content_type":"text",
-          "title":"Alle Informationen",
-          "payload":"sendTraineeMessageAlle"
-        },
-        {
-          "content_type":"text",
-          "title":"Zurück",
-          "payload":"sendZurueckMessage"
-        }
-      ]
-    }
-  };
-
-  callSendAPI(messageData);
-}
-
-function sendDirekteinstiegMessage(recipientId){
-      var messageData = {
-    recipient: {
-      id: recipientId
-    },
-    message: {
-      text: "Sehr gut! Wir sind ständig auf der Suche nach motivierten Mitarbeitern, die unsere Leidenschaft für Sportwagen teilen.",
-      quick_replies: [
-        {
-          "content_type":"text",
-          "title":"Anforderungen", 
-          "payload":"sendDirekteinstiegMessageAnforderungen"
-        },
-        {
-          "content_type":"text",
-          "title":"Bewerbung",
-          "payload":"sendDirekteinstiegMessageBewerbung"
-        }, 
-          {
-          "content_type":"text",
-          "title":"Alle Informationen",
-          "payload":"sendDirekteinstiegMessageAlle"
-        }
-      ]
-    }
-  };
-
-  callSendAPI(messageData);
-}
-
-function sendDirekteinstiegAnforderungenMessage(recipientId){
-      var messageData = {
-    recipient: {
-      id: recipientId
-    },
-    message: {
-      text: "Bei der Auswahl unserer neuen Mitarbeiter achten wir auf ein stimmiges Gesamtpaket. Ebenso wichtig wie fachliche Qualifikationen ist uns soziale Kompetenz",
-      quick_replies: [
-        {
-          "content_type":"text",
-          "title":"Bewerbung",
-          "payload":"sendDirekteintiegMessageBewerbung"
-        },
-          {
-          "content_type":"text",
-          "title":"Alle Informationen",
-          "payload":"sendDirekteinstiegMessageAlle"
-        },
-        {
-          "content_type":"text",
-          "title":"Zurück",
-          "payload":"sendZurueckMessage"
-        }
-      ]
-    }
-  };
-
-  callSendAPI(messageData);
-}
-
-function sendDirekteinstiegBewerbungMessage(recipientId){
-      var messageData = {
-    recipient: {
-      id: recipientId
-    },
-    message: {
-      text: "Du findest alle offenen Stellenangebote von Porsche sowie unserer nationalen und internationalen Tochtergesellschaften im Porsche Job Locator. LINK\n\nDie Jobs lassen sich nach verschiedenen Kriterien filtern, so dass du schnell und einfach sehen kannst, ob ein passender für dich dabei ist.\n\nLege dir schnell und einfach ein Job Abo an. So wirst du per E-Mail informiert, sobald geeignete Stellen ausgeschrieben werden. LINK\n\nErlebe einen Tag bei Porsche: In unserem Film wird deutlich, dass Alltag bei Porsche niemals alltäglich ist. VIDEO",
-      quick_replies: [
-        {
-          "content_type":"text",
-          "title":"Anforderungen",
-          "payload":"sendDirekteintiegMessageAnforderungen"
-        },
-        {
-          "content_type":"text",
-          "title":"Alle Informationen",
-          "payload":"sendDirekteinstiegMessageAlle"
-        },
-        {
-          "content_type":"text",
-          "title":"Zurück",
-          "payload":"sendZurueckMessage"
-        }
-      ]
-    }
-  };
-
-  callSendAPI(messageData);
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 function sendImageMessage(recipientId) {
