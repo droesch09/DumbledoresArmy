@@ -257,8 +257,8 @@ function receivedMessage(event) {
         sendZurueckMessage(senderID);
         break;
             
-      case 'sendStartMessageBerufsausbildung':
-        sendBerufsausbildungMessage1(senderID);
+      case 'sendStartBack':
+        sendBackMessage(senderID);
         break;
         
         //TODO
