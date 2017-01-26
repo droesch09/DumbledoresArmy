@@ -8,10 +8,8 @@
  */
 
 /* jshint node: true, devel: true */
-'use strict';
 
-const 
-  bodyParser = require('body-parser'),
+const bodyParser = require('body-parser'),
   config = require('config'),
   crypto = require('crypto'),
   express = require('express'),
