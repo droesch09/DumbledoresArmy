@@ -29,17 +29,17 @@ app.use(express.static('public'));
  */
 
 // App Secret can be retrieved from the App Dashboard
-const APP_SECRET = "aa8ced39ad5d2f18f8ed4ae433a3117c"
+const APP_SECRET = "1ee6b32f987966868bdf03194435ebfa"
 
 // Arbitrary value used to validate a webhook
-const VALIDATION_TOKEN = "KevinDanielChatbotKevinDaniel"
+const VALIDATION_TOKEN = "DumbledoresArmy"
 
 // Generate a page access token for your page from the App Dashboard
-const PAGE_ACCESS_TOKEN = "EAAFKotdMmt4BAC1dwVgALu5KxAykCN0NZA8DMnBZBZAfE06b4SZARULr2fddDSPdSgx7EzwAd96cgSwiAL1ZAKNS1s3nLZAzQ8ZCDBTNfZAgZBdRDvH39NrxsfvdKWcdDGCo7u4rbSSx6Yak2KOJDpWDSXeZBHSD75EEJiFkbJzGTIlgZDZD"
+const PAGE_ACCESS_TOKEN = "EAAKI86O7CKMBALtPvK3RldSuHZBwMdFJZBDBIhcngYVWg1mRURo01pNLHlAZCeDZAhBhkMS3DqtChcfZBoF0ef4svZA0Vfl4vPoWaZCe5AZAMqWEVvBNNFCOWuwWyzZBldwAvCdwjoDLjDS3JHR6lWMeyZC4wONQyio2j3Ts67Ds7aKQZDZD"
 
 // URL where the app is running (include protocol). Used to point to scripts and 
 // assets located at this address. 
-const SERVER_URL = "https://dry-tundra-12988.herokuapp.com/webhook"
+const SERVER_URL = "https://da/api/toggle"
 
 if (!(APP_SECRET && VALIDATION_TOKEN && PAGE_ACCESS_TOKEN && SERVER_URL)) {
   console.error("Missing config values");
@@ -259,102 +259,6 @@ function receivedMessage(event) {
             
       case 'sendStartMessageBerufsausbildung':
         sendBerufsausbildungMessage1(senderID);
-        break;
-
-      case 'sendStartMessageDualesStudium':
-        sendDualesStudiumMessage(senderID);
-        break;
-
-      case 'sendStartMessagePraktikum':
-        sendPraktikumMessage(senderID);
-        break;
-
-      case 'sendStartMessageTraineeProgramm':
-        sendTraineeMessage(senderID);
-        break;
-
-      case 'sendStartMessageDirekteinstieg':
-        sendDirekteinstiegMessage(senderID);
-        break;
-
-      case 'sendStartMessageBewerbung':
-        sendButtonMessage(senderID);
-        break;
-
-      case 'sendStartMessageTermineUndEvents':
-        sendGenericMessage(senderID);
-        break;
-
-        case 'sendDualesStudiumMessageAufbauUndInhalte':
-        sendDualesStudiumAufbauMessage(senderID);
-        break;
-            
-        case 'sendDualesStudiumMessageAnforderungen':
-        sendDualesStudiumAnforderungenMessage(senderID);
-        break;
-            
-        case 'sendDualesStudiumMessageBewerbung':
-        sendDualesStudiumBewerbungMessage(senderID);
-        break;
-            
-        case 'sendDualesStudiumMessageBewerbungsprozess':
-        sendDualesStudiumBewerbungsprozessMessage(senderID);
-        break;
-            
-        case 'sendDualesStudiumMessageAlle':
-        sendDualesStudiumAufbauMessage(senderID);
-        sendDualesStudiumAnforderungenMessage(senderID);
-        sendDualesStudiumBewerbungMessage(senderID);
-        break;
-
-        case 'sendPraktikumMessageEinsatzbereiche':
-        sendPraktikumEinsatzbereicheMessage(senderID);
-        break;
-            
-        case 'sendPraktikumMessageDauer':
-        sendPraktikumDauerMessage(senderID);
-        break;
-            
-        case 'sendPraktikumMessageAnforderungen':
-        sendPraktikumAnforderungenMessage(senderID);
-        break;
-    
-        case 'sendPraktikumMessageBewerbung':
-        sendPraktikumBewerbungMessage(senderID);
-        break;
-            
-        case 'sendPraktikumMessageAlle':
-        sendPraktikumEinsatzbereicheMessage(senderID);
-        sendPraktikumDauerMessage(senderID);
-        sendPraktikumAnforderungenMessage(senderID);
-        sendPraktikumBewerbungMessage(senderID);
-        sendPraktikumBewerbungMessage(senderID);
-        break;
-
-        case 'sendTraineeMessageInhalt':
-        sendTraineeInhaltMessage(senderID);
-        break;
-        
-        case 'sendTraineeMessageBewerbung':
-        sendTraineeBewerbungMessage(senderID);
-        break;
-            
-        case 'sendTraineeMessageAlle':
-        sendTraineeInhaltMessage(senderID);
-        sendTraineeBewerbungMessage(senderID);
-        break;
-            
-        case 'sendDirekteinstiegMessageAnforderungen':
-        sendDirekteinstiegAnforderungenMessage(senderID);
-        break;
-            
-        case 'sendDirekteinstiegMessageBewerbung':
-        sendDirekteinstiegBewerbungMessage(senderID);
-        break;
-            
-        case 'sendDirekteinstiegMessageAlle':
-        sendDirekteinstiegAnforderungenMessage(senderID);
-        sendDirekteinstiegBewerbungMessage(senderID);
         break;
         
         //TODO
@@ -604,42 +508,27 @@ function sendStartMessage(recipientId){
       id: recipientId
     },
     message: {
-      text: "Hallo MAX, \n\nwir freuen uns, dass du \"Jobs & Karriere bei Porsche\" besuchst.\n\nViele Informationen rund um den Einstieg bei Porsche kannst du hier auf der Stelle abrufen. Natürlich kannst du uns auch jederzeit eine persönliche Nachricht schicken, gib dafür einfach @mitarbeiter ein. Wir bemühen uns, dir dann möglichst schnell zu antworten.\n\nKönnen wir dir bei einem der folgenden Themen helfen?",
+      text: "Hello. Welcome back. How can I help you?",
       quick_replies: [
         {
           "content_type":"text",
-          "title":"Berufsausbildung",
-          "payload":"sendStartMessageBerufsausbildung"
+          "title":"Range",
+          "payload":"sendStartRange"
         },
         {
           "content_type":"text",
-          "title":"Duales Studium",
-          "payload":"sendStartMessageDualesStudium"
+          "title":"Location",
+          "payload":"sendStartLocation"
         },
         {
           "content_type":"text",
-          "title":"Praktikum",
-          "payload":"sendStartMessagePraktikum"
+          "title":"Maintenance",
+          "payload":"sendStartMaintenance"
         },
         {
           "content_type":"text",
-          "title":"Trainee Programm",
-          "payload":"sendStartMessageTraineeProgramm"
-        },
-        {
-          "content_type":"text",
-          "title":"Direkteinstieg",
-          "payload":"sendStartMessageDirekteinstieg"
-        },
-        {
-          "content_type":"text",
-          "title":"Bewerbungsprozess",
-          "payload":"sendStartMessageBewerbung"
-        },
-        {
-          "content_type":"text",
-          "title":"Termine & Events",
-          "payload":"sendStartMessageTermineUndEvents"
+          "title":"Back",
+          "payload":"sendStartBack"
         }
       ]
     }
@@ -648,48 +537,28 @@ function sendStartMessage(recipientId){
   callSendAPI(messageData);
 }
 
-function sendZurueckMessage(recipientId){
+function sendBackMessage(recipientId){
       var messageData = {
     recipient: {
       id: recipientId
     },
     message: {
-      text: "Alles klar! Benötigst du noch weitere Informationen? Füge deiner Nachricht gerne \"@mitarbeiter\" hinzu und ich leite sie an einen unserer Mitarbeiter weiter.",
+      text: "Okay, do you need more help?.",
       quick_replies: [
         {
           "content_type":"text",
-          "title":"Berufsausbildung",
-          "payload":"sendStartMessageBerufsausbildung"
+          "title":"Range",
+          "payload":"sendStartRange"
         },
         {
           "content_type":"text",
-          "title":"Duales Studium",
-          "payload":"sendStartMessageDualesStudium"
+          "title":"Location",
+          "payload":"sendStartLocation"
         },
         {
           "content_type":"text",
-          "title":"Praktikum",
-          "payload":"sendStartMessagePraktikum"
-        },
-        {
-          "content_type":"text",
-          "title":"Trainee Programm",
-          "payload":"sendStartMessageTraineeProgramm"
-        },
-        {
-          "content_type":"text",
-          "title":"Direkteinstieg",
-          "payload":"sendStartMessageDirekteinstieg"
-        },
-        {
-          "content_type":"text",
-          "title":"Bewerbungsprozess",
-          "payload":"sendStartMessageBewerbung"
-        },
-        {
-          "content_type":"text",
-          "title":"Termine & Events",
-          "payload":"sendStartMessageTermineUndEvents"
+          "title":"Maintenance",
+          "payload":"sendStartMaintenance"
         }
       ]
     }
@@ -698,30 +567,6 @@ function sendZurueckMessage(recipientId){
   callSendAPI(messageData);
 }
 
-function sendHelpMessage(recipientId){
-      var messageData = {
-    recipient: {
-      id: recipientId
-    },
-    message: {
-      text: "Oh. Willst du das ich das an einen unserer Mitarbeiter weiterleite?",
-      quick_replies: [
-        {
-          "content_type":"text",
-          "title":"Ja",
-          "payload":"sendStartMessageBerufsausbildung"
-        },
-        {
-          "content_type":"text",
-          "title":"Nein",
-          "payload":"sendZurueckMessage"
-        }
-      ]
-    }
-  };
-
-  callSendAPI(messageData);
-}
 // --------------------------------------------------------------------------
 // --------------------------------------------------------------------------
 // -----------------------------------           ----------------------------
@@ -730,13 +575,13 @@ function sendHelpMessage(recipientId){
 // --------------------------------------------------------------------------
 // --------------------------------------------------------------------------
 
-function sendBerufsausbildungMessage1(recipientId){
+function sendRangeMessage(recipientId){
     var messageData = {
     recipient: {
       id: recipientId
     },
     message: {
-      text: "Sehr gerne! Porsche bildet junge Menschen in verschiedenen technischen und kaufmännischen Berufen aus. Einen Übersicht übre die Angebotenen Ausbildungsberufe findest du hier:",
+      text: "You can go 50km with your Battery",
       metadata: "DEVELOPER_DEFINED_METADATA"
     }
   };
@@ -832,7 +677,7 @@ function sendBerufsausbildungMessage3(recipientId){
 
 function sendBerufsausbildungMessage4(recipientId) {
   var messageData = {
-    recipient: {
+    recipient:{
       id: recipientId
     },
     message: {
