@@ -297,64 +297,8 @@ function receivedMessage(event) {
     else if (messageTextLowerCase.includes("maintenance")){
     sendMaintenanceMessage(SenderID);
     }
-    switch (messageText) {
-      case 'location':
-        sendLocationMessage(senderID);
-        break;
-
-      case 'Location':
-        sendLocationMessage(senderID);
-        break;
-
-      case 'Range':
-        sendRangeMessage(senderID);
-        break;
-
-      case 'range':
-        sendRangeMessage(senderID);
-        break;
-
-      case 'Maintenance':
-        sendMaintenanceMessage(senderID);
-        break;
-
-      case 'maintenance':
-        sendMaintenanceMessage(senderID);
-        break;
-
-      case 'generic':
-        sendGenericMessage(senderID);
-        break;
-
-      case 'receipt':
-        sendReceiptMessage(senderID);
-        break;
-
-      case 'quick reply':
-        sendQuickReply(senderID);
-        break;        
-
-      case 'read receipt':
-        sendReadReceipt(senderID);
-        break;        
-
-      case 'typing on':
-        sendTypingOn(senderID);
-        break;        
-
-      case 'typing off':
-        sendTypingOff(senderID);
-        break;        
-
-      case 'account linking':
-        sendAccountLinking(senderID);
-        break;
-
-      default:
-        if (!quickReplyPayload){
-            sendStartMessage(senderID);
-        }
-        console.log("default");
+    else {
+    console.log("else");
     }
   } else if (messageAttachments) {
     sendTextMessage(senderID, "Message with attachment received");
