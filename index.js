@@ -289,7 +289,7 @@ function receivedMessage(event) {
     // the text we received.
     var messageTextLowerCase = messageText.toLowerCase();
     if (messageTextLowerCase.includes("location")){
-    sendLocationMessage(senderID);    
+    sendLocationMessage(senderID);
     }
     else if (messageTextLowerCase.includes("range")){
     sendRangeMessage(SenderID);
@@ -297,9 +297,7 @@ function receivedMessage(event) {
     else if (messageTextLowerCase.includes("maintenance")){
     sendMaintenanceMessage(SenderID);
     }
-    else {
-    console.log("else");
-    }
+    
   } else if (messageAttachments) {
     sendTextMessage(senderID, "Message with attachment received");
   }
