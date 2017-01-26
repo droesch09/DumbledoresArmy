@@ -618,13 +618,13 @@ function sendRangeMessage(recipientId){
     
 }
 
- function sendLocationMessage(recipientId){
+ function sendLocationMessage2(recipientId){
     var messageData = {
     recipient: {
       id: recipientId
     },
     message: {
-      text: "I'm right next to you",
+      text: "Is there still anything I can help you with? ",
       quick_replies: [
         {
           "content_type":"text",
@@ -647,6 +647,38 @@ function sendRangeMessage(recipientId){
 
   callSendAPI(messageData);
     
+}
+
+function sendLocationMessage(recipientId) {
+  var messageData = {
+    recipient: {
+      id: recipientId
+    },
+    message: {
+      attachment: {
+        type: "template",
+        payload: {
+          template_type: "generic",
+          elements: [{
+            title: "Your Porsches Location",
+            subtitle: "I am not far away from you.",               
+            image_url: "https://porschenewsroom.s3.amazonaws.com/porsche_newsroom/produkte/918-spyder/918-spyder-bildergalerie/918-spyder2/2d4de237-8587-4ede-9d66-5b5da5dca1dc_teaser_720x406x1_5.jpg",
+            buttons: [{
+              type: "web_url",
+              url: "https://www.google.de/maps/place/Schwieberdinger+Str.+72,+71636+Ludwigsburg/@48.8903415,9.1709991,17z/data=!3m1!4b1!4m5!3m4!1s0x4799d1a6694ebd2b:0xfbc331d3daad68ef!8m2!3d48.8903415!4d9.1731878",
+              title: "Go to Location"
+            }],
+          }]
+        }
+      }
+    }
+  };  
+
+  callSendAPI(messageData);
+  
+            setTimeout(function(){
+  sendLocationMessage2(recipientId);
+    }, 1000);
 }
 
 function sendMaintenanceMessage(recipientId){
