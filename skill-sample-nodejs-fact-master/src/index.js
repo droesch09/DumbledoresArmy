@@ -3,48 +3,22 @@ var Alexa = require('alexa-sdk');
 var APP_ID = undefined;  // TODO replace with your app ID (OPTIONAL).
 
 var languageStrings = {
-    "en-GB": {
-        "translation": {
-            "FACTS": [
-                "A year on Mercury is just 88 days long.",
-                "Despite being farther from the Sun, Venus experiences higher temperatures than Mercury.",
-                "Venus rotates anti-clockwise, possibly because of a collision in the past with an asteroid.",
-                "On Mars, the Sun appears about half the size as it does on Earth.",
-                "Earth is the only planet not named after a god.",
-                "Jupiter has the shortest day of all the planets.",
-                "The Milky Way galaxy will collide with the Andromeda Galaxy in about 5 billion years.",
-                "The Sun contains 99.86% of the mass in the Solar System.",
-                "The Sun is an almost perfect sphere.",
-                "A total solar eclipse can happen once every 1 to 2 years. This makes them a rare event.",
-                "Saturn radiates two and a half times more energy into space than it receives from the sun.",
-                "The temperature inside the Sun can reach 15 million degrees Celsius.",
-                "The Moon is moving approximately 3.8 cm away from our planet every year."
-            ],
-            "SKILL_NAME" : "British Space Facts",
-            "GET_FACT_MESSAGE" : "Here's your fact: ",
-            "HELP_MESSAGE" : "You can say tell me a space fact, or, you can say exit... What can I help you with?",
-            "HELP_REPROMPT" : "What can I help you with?",
-            "STOP_MESSAGE" : "Goodbye!"
-        }
-    },
+    
+
     "en-US": {
         "translation": {
-            "FACTS": [
-                "A year on Mercury is just 88 days long.",
-                "Despite being farther from the Sun, Venus experiences higher temperatures than Mercury.",
-                "Venus rotates counter-clockwise, possibly because of a collision in the past with an asteroid.",
-                "On Mars, the Sun appears about half the size as it does on Earth.",
-                "Earth is the only planet not named after a god.",
-                "Jupiter has the shortest day of all the planets.",
-                "The Milky Way galaxy will collide with the Andromeda Galaxy in about 5 billion years.",
-                "The Sun contains 99.86% of the mass in the Solar System.",
-                "The Sun is an almost perfect sphere.",
-                "A total solar eclipse can happen once every 1 to 2 years. This makes them a rare event.",
-                "Saturn radiates two and a half times more energy into space than it receives from the sun.",
-                "The temperature inside the Sun can reach 15 million degrees Celsius.",
-                "The Moon is moving approximately 3.8 cm away from our planet every year."
+            "ABOUT_ME": [
+                "Hi, I am your Porsche.",
+                "Hi, it's me, your Porsche, I love you.",
+                "I am your Porsche, I am brand new.",
+                "I am your Porsche. I am a 918 model, I am very rare.  Only 918 units where ever built. I was produced in Zuffenhausen, a beautiful area in Stuttgart. ",
             ],
-            "SKILL_NAME" : "American Space Facts",
+            "WARM_UP": [
+                "Sorry about that. Let's heat things up in here. Seat and steering wheel heating are activated.",
+                "Yeah, I was gonna say that myself. I will turn on seat and steering wheel heating for you.",
+                "I think so too. Let me help you with that. Activating seat heating."
+            ],
+            "SKILL_NAME" : "About Me Facts",
             "GET_FACT_MESSAGE" : "Here's your fact: ",
             "HELP_MESSAGE" : "You can say tell me a space fact, or, you can say exit... What can I help you with?",
             "HELP_REPROMPT" : "What can I help you with?",
@@ -77,22 +51,25 @@ exports.handler = function(event, context, callback) {
 
 var handlers = {
     'LaunchRequest': function () {
-        this.emit('GetFact');
+        this.emit('AboutYouIntent');
     },
     'WarmUpIntent': function () {
-        this.emit('GetFact');
-    },
-    'GetFact': function () {
-        // Get a random space fact from the space facts list
-        // Use this.t() to get corresponding language data
-        var factArr = this.t('FACTS');
-        var factIndex = Math.floor(Math.random() * factArr.length);
-        var randomFact = factArr[factIndex];
+        var answerArr = this.t('WARM_UP');
+        var answerIdx = Math.floor(Math.random() * answerArr.length);
+        var randomAns = answerArr[answerIdx];
 
-        // Create speech output
-        var speechOutput = randomFact;
-        this.emit(':tellWithCard', speechOutput, this.t("SKILL_NAME"), randomFact)
+        this.emit(':tell', randomAns)
     },
+    
+    // Intent About you
+    'AboutYouIntent': function () {
+        var answerArr = this.t('ABOUT_ME');
+        var answerIdx = Math.floor(Math.random() * answerArr.length);
+        var randomAns = answerArr[answerIdx];
+
+        this.emit(':tell', randomAns)
+    },
+    
     'AMAZON.HelpIntent': function () {
         var speechOutput = this.t("HELP_MESSAGE");
         var reprompt = this.t("HELP_MESSAGE");
