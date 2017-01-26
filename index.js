@@ -288,28 +288,28 @@ function receivedMessage(event) {
     // keywords and send back the corresponding example. Otherwise, just echo
     // the text we received.
     switch (messageText) {
-      case 'image':
-        sendImageMessage(senderID);
+      case 'location':
+        sendLocationMessage(senderID);
         break;
 
-      case 'gif':
-        sendGifMessage(senderID);
+      case 'Location':
+        sendLocationMessage(senderID);
         break;
 
-      case 'audio':
-        sendAudioMessage(senderID);
+      case 'Range':
+        sendRangeMessage(senderID);
         break;
 
-      case 'video':
-        sendVideoMessage(senderID);
+      case 'range':
+        sendRangeMessage(senderID);
         break;
 
-      case 'file':
-        sendFileMessage(senderID);
+      case 'Maintenance':
+        sendMaintenanceMessage(senderID);
         break;
 
-      case 'button':
-        sendButtonMessage(senderID);
+      case 'maintenance':
+        sendMaintenanceMessage(senderID);
         break;
 
       case 'generic':
