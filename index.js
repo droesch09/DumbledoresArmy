@@ -330,7 +330,7 @@ function receivedMessage(event) {
 
       default:
         if (!quickReplyPayload){
-            sendHelpMessage(senderID);
+            sendStartMessage(senderID);
         }
         console.log("default");
     }
