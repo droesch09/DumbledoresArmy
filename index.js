@@ -282,25 +282,25 @@ function receivedMessage(event) {
   }
 
 
-  if (messageText) {
-
-    // If we receive a text message, check to see if it matches any special
-    // keywords and send back the corresponding example. Otherwise, just echo
-    // the text we received.
-    var messageTextLowerCase = messageText.toLowerCase();
-    if (messageTextLowerCase.includes("location")){
-    sendLocationMessage(senderID);
-    }
-    else if (messageTextLowerCase.includes("range")){
-    sendRangeMessage(SenderID);
-    }
-    else if (messageTextLowerCase.includes("maintenance")){
-    sendMaintenanceMessage(SenderID);
-    }
-    
-  } else if (messageAttachments) {
-    sendTextMessage(senderID, "Message with attachment received");
-  }
+//  if (messageText) {
+//
+//    // If we receive a text message, check to see if it matches any special
+//    // keywords and send back the corresponding example. Otherwise, just echo
+//    // the text we received.
+//    var messageTextLowerCase = messageText.toLowerCase();
+//    if (messageTextLowerCase.includes("location")){
+//    sendLocationMessage(senderID);
+//    }
+//    else if (messageTextLowerCase.includes("range")){
+//    sendRangeMessage(SenderID);
+//    }
+//    else if (messageTextLowerCase.includes("maintenance")){
+//    sendMaintenanceMessage(SenderID);
+//    }
+//    
+//  } else if (messageAttachments) {
+//    sendTextMessage(senderID, "Message with attachment received");
+//  }
 }
 
 /*
