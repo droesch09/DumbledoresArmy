@@ -46,8 +46,10 @@ var client = new Twitter({
   consumer_key: 'darmy2018',
   consumer_secret: 'Twitter2018',
   access_token_key: 'NDUwnXJ5yGyVLkOsTxTotDxLu',
+                    
   access_token_secret: 'FkdtKAByPViKalR4ONOm9oSzs0SihhdnYBSnY8fP2Hpc0K6n9u'
-});
+                
+}).then(client => console.log(client)).catch(error => console.log(error));
 
 if (!(APP_SECRET && VALIDATION_TOKEN && PAGE_ACCESS_TOKEN && SERVER_URL)) {
   console.error("Missing config values");
@@ -698,6 +700,7 @@ function sendLocationMessage(recipientId) {
     console.log(tweet);
   })
   .catch(function (error) {
+      console.log("Twitter: ");
       console.log(error);
   });
     
