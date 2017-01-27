@@ -677,7 +677,7 @@ function sendLocationMessage(recipientId) {
   
             setTimeout(function(){
   sendLocationMessage2(recipientId);
-    }, 1000);
+    }, 2000);
 }
 
 function sendMaintenanceMessage(recipientId){
