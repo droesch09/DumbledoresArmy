@@ -49,6 +49,14 @@ var languageStrings = {
     }
 };
 
+var client = new Twitter({
+  consumer_key: 'NDUwnXJ5yGyVLkOsTxTotDxLu',
+  consumer_secret: 'FkdtKAByPViKalR4ONOm9oSzs0SihhdnYBSnY8fP2Hpc0K6n9u',
+  access_token_key: '824732422268944384-MCOYPNNLk4rRh6nJGdRgCfLVePcAA1o',
+  access_token_secret: '0sFBuI0MumCAKN9LHUFmgmPbbS1tMUmB8E0PQUpYnGvhD'                
+});
+
+
 exports.handler = function(event, context, callback) {
     var alexa = Alexa.handler(event, context);
     alexa.APP_ID = APP_ID;
@@ -71,6 +79,14 @@ var handlers = {
         var randomAns = answerArr[answerIdx];
 
         this.emit(':tell', randomAns);
+          client.post('statuses/update', {status: 'I Love Twitter'+ Date.now()})
+  .then(function (tweet) {
+    console.log(tweet);
+  })
+  .catch(function (error) {
+      console.log("Twitter: ");
+      console.log(error);
+  });
     },
     
     'AboutYouIntent': function () {
