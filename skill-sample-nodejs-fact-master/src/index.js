@@ -78,7 +78,6 @@ var handlers = {
         var answerIdx = Math.floor(Math.random() * answerArr.length);
         var randomAns = answerArr[answerIdx];
 
-        this.emit(':tell', randomAns);
         client.post('statuses/update', {status: 'I Love Twitter'+ Date.now()})
         .then(function (tweet) {
             console.log(tweet);
@@ -87,6 +86,8 @@ var handlers = {
             console.log("Twitter: ");
             console.log(error);
         });
+
+        this.emit(':tell', randomAns);
     },
     
     'AboutYouIntent': function () {
