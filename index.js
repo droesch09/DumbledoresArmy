@@ -43,11 +43,11 @@ const PAGE_ACCESS_TOKEN = "EAAKI86O7CKMBAF5MpWlrqTFTxZBV3KMcwPf86DEBClrsu1QhZAZC
 const SERVER_URL = "https://da/api/toggle"
 
 var client = new Twitter({
-  consumer_key: 'darmy2018',
-  consumer_secret: 'Twitter2018',
-  access_token_key: 'NDUwnXJ5yGyVLkOsTxTotDxLu',
+  consumer_key: 'NDUwnXJ5yGyVLkOsTxTotDxLu',
+  consumer_secret: 'FkdtKAByPViKalR4ONOm9oSzs0SihhdnYBSnY8fP2Hpc0K6n9u',
+  access_token_key: '824732422268944384-MCOYPNNLk4rRh6nJGdRgCfLVePcAA1o',
                     
-  access_token_secret: 'FkdtKAByPViKalR4ONOm9oSzs0SihhdnYBSnY8fP2Hpc0K6n9u'
+  access_token_secret: '0sFBuI0MumCAKN9LHUFmgmPbbS1tMUmB8E0PQUpYnGvhD'
                 
 });
 
