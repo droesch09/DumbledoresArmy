@@ -15,7 +15,7 @@ const bodyParser = require('body-parser'),
   express = require('express'),
   https = require('https'),  
   request = require('request'),
-      twitter = require('twitter');
+  Twitter = require('twitter');
 
 var app = express();
 app.set('port', process.env.PORT || 5000);
