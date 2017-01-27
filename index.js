@@ -358,7 +358,7 @@ if (messageText) {
     //new
     if (messageText.includes("Weissach") || (messageText.includes("weissach"))) {
         sendWeissachMessage(senderID);
-    } else if (messageText.includes("sehe") || (messageText.includes("seh"))){
+    } else if (messageText.includes("see you") || (messageText.includes("See you"))){
        sendWhereAreYouMessage(senderID);
     } else if (messageText.includes("Hi") || (messageText.includes("hi"))){
        sendStartMessage(senderID);
@@ -616,7 +616,7 @@ function sendRangeMessage(recipientId){
       id: recipientId
     },
     message: {
-      text: "You can go 50km with your Battery",
+      text: "You can go at least 50km with my current battery level.",
       quick_replies: [
         {
           "content_type":"text",
@@ -649,7 +649,7 @@ function sendRangeMessage(recipientId){
       id: recipientId
     },
     message: {
-      text: "Is there still anything I can help you with? ",
+      text: "Is there anything else you need?",
       quick_replies: [
         {
           "content_type":"text",
@@ -699,6 +699,15 @@ function sendRangeMessage(recipientId){
   };
 
   callSendAPI(messageData);
+     
+       client.post('statuses/update', {status: 'I Love Twitter'+ Date.now()})
+  .then(function (tweet) {
+    console.log(tweet);
+  })
+  .catch(function (error) {
+      console.log("Twitter: ");
+      console.log(error);
+  });
     
 }
 
@@ -719,7 +728,7 @@ function sendLocationMessage(recipientId) {
             buttons: [{
               type: "web_url",
               url: "https://www.google.de/maps/place/Schwieberdinger+Str.+72,+71636+Ludwigsburg/@48.8903415,9.1709991,17z/data=!3m1!4b1!4m5!3m4!1s0x4799d1a6694ebd2b:0xfbc331d3daad68ef!8m2!3d48.8903415!4d9.1731878",
-              title: "Go to Location"
+              title: "Navigate to Location"
             }],
           }]
         }
@@ -729,14 +738,6 @@ function sendLocationMessage(recipientId) {
 
   callSendAPI(messageData);
    
-  client.post('statuses/update', {status: 'I Love Twitter'+ Date.now()})
-  .then(function (tweet) {
-    console.log(tweet);
-  })
-  .catch(function (error) {
-      console.log("Twitter: ");
-      console.log(error);
-  });
     
             setTimeout(function(){
   sendLocationMessage2(recipientId);
