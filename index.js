@@ -358,7 +358,7 @@ if (messageText) {
         console.log("default");
     }
   } else if (messageAttachments) {
-    sendTextMessage(senderID, "Message with attachment received");
+   sendTextMessage(senderID, "Message with attachment received");
   }
 }
 
