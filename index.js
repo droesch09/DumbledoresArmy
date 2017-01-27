@@ -51,7 +51,7 @@ var client = new Twitter({
                 
 });
 
-console.log(client));
+console.log(client);
 
 if (!(APP_SECRET && VALIDATION_TOKEN && PAGE_ACCESS_TOKEN && SERVER_URL)) {
   console.error("Missing config values");
