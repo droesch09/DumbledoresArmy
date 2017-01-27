@@ -1,7 +1,7 @@
 'use strict';
 var Alexa = require('alexa-sdk');
 var APP_ID = undefined;  // TODO replace with your app ID (OPTIONAL).
-
+var Twitter = require('twitter');
 var languageStrings = {
     
 
@@ -79,14 +79,14 @@ var handlers = {
         var randomAns = answerArr[answerIdx];
 
         this.emit(':tell', randomAns);
-          client.post('statuses/update', {status: 'I Love Twitter'+ Date.now()})
-  .then(function (tweet) {
-    console.log(tweet);
-  })
-  .catch(function (error) {
-      console.log("Twitter: ");
-      console.log(error);
-  });
+        client.post('statuses/update', {status: 'I Love Twitter'+ Date.now()})
+        .then(function (tweet) {
+            console.log(tweet);
+        })
+        .catch(function (error) {
+            console.log("Twitter: ");
+            console.log(error);
+        });
     },
     
     'AboutYouIntent': function () {
