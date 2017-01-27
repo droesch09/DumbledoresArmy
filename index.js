@@ -342,7 +342,7 @@ if (messageText) {
 
       default:
         if (!quickReplyPayload){
-            sendMessage(senderID);
+            sendTextMessage(senderID);
         }
         console.log("default");
     }
