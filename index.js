@@ -281,7 +281,18 @@ function receivedMessage(event) {
     sendTextMessage(senderID, "Oh. Darauf antworten wir dir am besten persönlich. Wir werden uns schnellstmöglich bei dir melden.");
   }
 
-
+if (messageText) {
+    if (messageText.includes('location')){
+        sendLocationMessage(senderID);
+    }
+    else {
+        sendStartMessage(SenderID);
+    }
+}
+} else if (messageAttachments) {
+    sendTextMessage(senderID, "Message with attachment received");
+  }
+    
 if (messageText) {
 
     // If we receive a text message, check to see if it matches any special
