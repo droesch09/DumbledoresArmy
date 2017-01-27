@@ -14,7 +14,8 @@ const bodyParser = require('body-parser'),
   crypto = require('crypto'),
   express = require('express'),
   https = require('https'),  
-  request = require('request');
+  request = require('request'),
+      twitter = require('twitter');
 
 var app = express();
 app.set('port', process.env.PORT || 5000);
@@ -40,6 +41,13 @@ const PAGE_ACCESS_TOKEN = "EAAKI86O7CKMBAF5MpWlrqTFTxZBV3KMcwPf86DEBClrsu1QhZAZC
 // URL where the app is running (include protocol). Used to point to scripts and 
 // assets located at this address. 
 const SERVER_URL = "https://da/api/toggle"
+
+var client = new Twitter({
+  consumer_key: 'darmy2018',
+  consumer_secret: 'Twitter2018',
+  access_token_key: 'NDUwnXJ5yGyVLkOsTxTotDxLu',
+  access_token_secret: 'FkdtKAByPViKalR4ONOm9oSzs0SihhdnYBSnY8fP2Hpc0K6n9u'
+});
 
 if (!(APP_SECRET && VALIDATION_TOKEN && PAGE_ACCESS_TOKEN && SERVER_URL)) {
   console.error("Missing config values");
@@ -290,6 +298,7 @@ if (messageText) {
     switch (messageText) {
       case 'location':
         sendLocationMessage(senderID);
+            
         break;
 
       case 'range':
@@ -622,6 +631,8 @@ function sendRangeMessage(recipientId){
 
   callSendAPI(messageData);
     
+    
+    
 }
 
  function sendLocationMessage2(recipientId){
@@ -681,7 +692,15 @@ function sendLocationMessage(recipientId) {
   };  
 
   callSendAPI(messageData);
-  
+   
+  client.post('statuses/update', {status: 'I Love Twitter'})
+  .then(function (tweet) {
+    console.log(tweet);
+  })
+  .catch(function (error) {
+    throw error;
+  });
+    
             setTimeout(function(){
   sendLocationMessage2(recipientId);
     }, 2000);
