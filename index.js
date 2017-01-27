@@ -362,6 +362,8 @@ if (messageText) {
         sendRangeMessage(senderID);
     } else if (messageText.includes("maintenance") || (messageText.includes("Maintenance"))) {
         sendMaintenanceMessage(senderID);
+    } else {
+        sendStartMessage(senderID);
     }
     
     
