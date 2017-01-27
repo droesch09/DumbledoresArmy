@@ -346,6 +346,25 @@ if (messageText) {
         }
         console.log("default");
     }
+   
+    
+    //new
+    if (messageText.includes("location")) {
+        sendLocationMessage(senderID);
+    } else if (messageText.includes("Location")) {
+        sendLocationMessage(senderID);
+    } else if (messageText.includes("range")) {
+        sendLocationMessage(senderID);
+    } else if (messageText.includes("Range")) {
+        sendLocationMessage(senderID);
+    } else if (messageText.includes("maintenance")) {
+        sendLocationMessage(senderID);
+    } else if(messageText.includes("Maintenance")) {
+        sendLocationMessage(senderID);
+    }
+    
+    
+    
   } else if (messageAttachments) {
     sendTextMessage(senderID, "Message with attachment received");
   }
