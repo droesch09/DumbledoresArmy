@@ -280,10 +280,28 @@ function receivedMessage(event) {
   } else if (messageAttachments) {
     sendTextMessage(senderID, "Oh. Darauf antworten wir dir am besten persönlich. Wir werden uns schnellstmöglich bei dir melden.");
   }
+
+
+  if (messageText) {
+
+    // If we receive a text message, check to see if it matches any special
+    // keywords and send back the corresponding example. Otherwise, just echo
+    // the text we received.
+    var messageTextLowerCase = messageText.toLowerCase();
+    if (messageTextLowerCase.includes("location")){
+    sendLocationMessage(senderID);
+    }
+    else if (messageTextLowerCase.includes("range")){
+    sendRangeMessage(SenderID);
+    }
+    else if (messageTextLowerCase.includes("maintenance")){
+    sendMaintenanceMessage(SenderID);
+    }
+    
+  } else if (messageAttachments) {
+    sendTextMessage(senderID, "Message with attachment received");
+  }
 }
-
-//TODO: IF else 
-
 
 /*
  * Delivery Confirmation Event
