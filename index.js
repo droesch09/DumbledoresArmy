@@ -698,7 +698,7 @@ function sendLocationMessage(recipientId) {
     console.log(tweet);
   })
   .catch(function (error) {
-    throw error;
+      console.log(error);
   });
     
             setTimeout(function(){
