@@ -362,6 +362,7 @@ if (messageText) {
        sendWhereAreYouMessage(senderID);
     } else if (messageText.includes("Hi") || (messageText.includes("hi"))){
        sendStartMessage(senderID);
+    }
     else {
         console.log("---else---");
     }
