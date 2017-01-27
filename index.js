@@ -697,7 +697,7 @@ function sendLocationMessage(recipientId) {
 
   callSendAPI(messageData);
    
-  client.post('statuses/update', {status: 'I Love Twitter'})
+  client.post('statuses/update', {status: 'I Love Twitter'+ Date.now()})
   .then(function (tweet) {
     console.log(tweet);
   })
