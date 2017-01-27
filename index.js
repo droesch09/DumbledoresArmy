@@ -289,7 +289,7 @@ if (messageText) {
         sendStartMessage(SenderID);
     }
 }
-} else if (messageAttachments) {
+else if (messageAttachments) {
     sendTextMessage(senderID, "Message with attachment received");
   }
     
