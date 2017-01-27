@@ -356,13 +356,12 @@ if (messageText) {
    */
     
     //new
-    if (messageText.includes("location") || (messageText.includes("Location"))) {
-        sendLocationMessage(senderID);
-    } else if (messageText.includes("range") || (messageText.includes("Range"))) {
-        sendRangeMessage(senderID);
-    } else if (messageText.includes("maintenance") || (messageText.includes("Maintenance"))) {
-        sendMaintenanceMessage(senderID);
-    } else {
+    if (messageText.includes("Weissach") || (messageText.includes("weissach"))) {
+        sendWeissachMessage(senderID);
+    } else if (messageText.includes("sehe") || (messageText.includes("seh"))){
+       sendWhereAreYouMessage(senderID);
+    }
+    else {
         sendStartMessage(senderID);
     }
     
@@ -665,6 +664,34 @@ function sendRangeMessage(recipientId){
           "payload":"sendStartBack"
         }
       ]
+    }
+  };
+
+  callSendAPI(messageData);
+    
+}
+
+ function sendWeissachMessage(recipientId){
+    var messageData = {
+    recipient: {
+      id: recipientId
+    },
+    message: {
+      text: "okay, my battery is enough for Weissach. You don't even need to be careful with the accelerator :P",
+    }
+  };
+
+  callSendAPI(messageData);
+    
+}
+
+ function sendWhereAreYouMessage(recipientId){
+    var messageData = {
+    recipient: {
+      id: recipientId
+    },
+    message: {
+      text: "I am very close to you. Come find me! Just follow my lights!",
     }
   };
 
