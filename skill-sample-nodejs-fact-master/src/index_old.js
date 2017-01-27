@@ -8,9 +8,9 @@ var languageStrings = {
     "en-US": {
         "translation": {
             "ABOUT_ME": [
-                "Hi, I am your Porsche 918 Spyder.",
-                "Hi, it's me, your Porsche 918 Spyder, I love you.",
-                "I am your Porsche 918 Spyder, I am brand new.",
+                "Hi, I am your Porsche.",
+                "Hi, it's me, your Porsche, I love you.",
+                "I am your Porsche, I am brand new.",
                 "I am your Porsche. I am a 918 model, I am very rare.  Only 918 units where ever built. I was produced in Zuffenhausen, a beautiful area in Stuttgart. "
             ],
             "WARM_UP": [
@@ -18,9 +18,6 @@ var languageStrings = {
                 "Yeah, I was gonna say that myself. I will turn on seat and steering wheel heating for you.",
                 "I think so too. Let me help you with that. Activating seat heating."
             ],
-			
-			"SHOW_OFF": "We have had lots of speedy times together. But the day we hit 330 was really special.",
-			"PLAUDERN": "Sorry, i am a bit tired today because I stayed up all night coding.",
             "SKILL_NAME" : "About Me Facts",
             "GET_FACT_MESSAGE" : "Here's your fact: ",
 			"WELCOME_MESSAGE" : "This is your Porsche Assistant. How may I help you?",
@@ -92,12 +89,7 @@ var handlers = {
     'DumbledoreIntent': function () {
         this.emit(':tell', this.t("DUMBLEDORE"));
     },
-    'PlaudernIntent': function () {
-        this.emit(':tell', this.t("PLAUDERN"));
-    },
-     'ShowOffIntent': function () {
-        this.emit(':tell', this.t("SHOW_OFF"));
-    },
+    
     
     'AMAZON.HelpIntent': function () {
         var speechOutput = this.t("HELP_MESSAGE");
