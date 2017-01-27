@@ -362,7 +362,7 @@ if (messageText) {
        sendWhereAreYouMessage(senderID);
     }
     else {
-        sendStartMessage(senderID);
+        console.log("---else---");
     }
     
     
@@ -527,6 +527,7 @@ function receivedAccountLink(event) {
  * Send an image using the Send API.
  *
  */
+
 // --------------------------------------------------------------------------
 // --------------------------------------------------------------------------
 // -----------------------------------           ----------------------------
