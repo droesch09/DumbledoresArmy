@@ -282,25 +282,73 @@ function receivedMessage(event) {
   }
 
 
-//  if (messageText) {
-//
-//    // If we receive a text message, check to see if it matches any special
-//    // keywords and send back the corresponding example. Otherwise, just echo
-//    // the text we received.
-//    var messageTextLowerCase = messageText.toLowerCase();
-//    if (messageTextLowerCase.includes("location")){
-//    sendLocationMessage(senderID);
-//    }
-//    else if (messageTextLowerCase.includes("range")){
-//    sendRangeMessage(SenderID);
-//    }
-//    else if (messageTextLowerCase.includes("maintenance")){
-//    sendMaintenanceMessage(SenderID);
-//    }
-//    
-//  } else if (messageAttachments) {
-//    sendTextMessage(senderID, "Message with attachment received");
-//  }
+if (messageText) {
+
+    // If we receive a text message, check to see if it matches any special
+    // keywords and send back the corresponding example. Otherwise, just echo
+    // the text we received.
+    switch (messageText) {
+      case 'location':
+        sendLocationMessage(senderID);
+        break;
+
+      case 'range':
+        sendRangeMessage(senderID);
+        break;
+
+      case 'maintenance':
+        sendMaintenanceMessage(senderID);
+        break;
+
+      case 'video':
+        sendVideoMessage(senderID);
+        break;
+
+      case 'file':
+        sendFileMessage(senderID);
+        break;
+
+      case 'button':
+        sendButtonMessage(senderID);
+        break;
+
+      case 'generic':
+        sendGenericMessage(senderID);
+        break;
+
+      case 'receipt':
+        sendReceiptMessage(senderID);
+        break;
+
+      case 'quick reply':
+        sendQuickReply(senderID);
+        break;        
+
+      case 'read receipt':
+        sendReadReceipt(senderID);
+        break;        
+
+      case 'typing on':
+        sendTypingOn(senderID);
+        break;        
+
+      case 'typing off':
+        sendTypingOff(senderID);
+        break;        
+
+      case 'account linking':
+        sendAccountLinking(senderID);
+        break;
+
+      default:
+        if (!quickReplyPayload){
+            sendHelpMessage(senderID);
+        }
+        console.log("default");
+    }
+  } else if (messageAttachments) {
+    sendTextMessage(senderID, "Message with attachment received");
+  }
 }
 
 /*
