@@ -353,7 +353,7 @@ if (messageText) {
 
       default:
         if (!quickReplyPayload){
-            sendStartMessage(senderID);
+            console.log("default switch");
         }
         console.log("default");
     }
