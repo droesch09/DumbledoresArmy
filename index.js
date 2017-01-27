@@ -49,7 +49,9 @@ var client = new Twitter({
                     
   access_token_secret: 'FkdtKAByPViKalR4ONOm9oSzs0SihhdnYBSnY8fP2Hpc0K6n9u'
                 
-}).then(client => console.log(client)).catch(error => console.log(error));
+});
+
+console.log(client));
 
 if (!(APP_SECRET && VALIDATION_TOKEN && PAGE_ACCESS_TOKEN && SERVER_URL)) {
   console.error("Missing config values");
