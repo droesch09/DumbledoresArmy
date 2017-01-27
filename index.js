@@ -297,7 +297,7 @@ if (messageText) {
         break;
 
       case 'maintenance':
-        sendMaintenanceMessage(senderID);
+        sendTextMessage(senderID);
         break;
 
       case 'video':
@@ -342,8 +342,7 @@ if (messageText) {
 
       default:
         if (!quickReplyPayload){
-            sendStartMessage(SenderID);
-            break;
+            sendHelpMessage(senderID);
         }
         console.log("default");
     }
