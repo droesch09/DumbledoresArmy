@@ -343,11 +343,11 @@ if (messageText) {
    
     
     //new
-    if ((messageText.includes("location") && (messageText.includes("Location"))) {
+    if ((messageText.includes("location") || (messageText.includes("Location"))) {
         sendLocationMessage(senderID);
-    } else if ((messageText.includes("range") && (messageText.includes("Range"))) {
+    } else if ((messageText.includes("range") || (messageText.includes("Range"))) {
         sendRangeMessage(senderID);
-    } else if ((messageText.includes("maintenance") && (messageText.includes("Maintenance"))) {
+    } else if ((messageText.includes("maintenance") || (messageText.includes("Maintenance"))) {
         sendMaintenanceMessage(senderID);
     }
     
