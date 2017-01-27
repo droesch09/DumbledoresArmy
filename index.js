@@ -299,7 +299,7 @@ if (messageText) {
     // If we receive a text message, check to see if it matches any special
     // keywords and send back the corresponding example. Otherwise, just echo
     // the text we received.
-    switch (messageText) {
+   /* switch (messageText) {
       case 'location':
         sendLocationMessage(senderID);
             
@@ -353,7 +353,7 @@ if (messageText) {
         sendAccountLinking(senderID);
         break;
     }
-   
+   */
     
     //new
     if (messageText.includes("location") || (messageText.includes("Location"))) {
@@ -362,6 +362,8 @@ if (messageText) {
         sendRangeMessage(senderID);
     } else if (messageText.includes("maintenance") || (messageText.includes("Maintenance"))) {
         sendMaintenanceMessage(senderID);
+    } else {
+        sendStartMessage(senderID);
     }
     
     
