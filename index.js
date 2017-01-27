@@ -354,13 +354,13 @@ if (messageText) {
     } else if (messageText.includes("Location")) {
         sendLocationMessage(senderID);
     } else if (messageText.includes("range")) {
-        sendLocationMessage(senderID);
+        sendRangeMessage(senderID);
     } else if (messageText.includes("Range")) {
-        sendLocationMessage(senderID);
+        sendRangeMessage(senderID);
     } else if (messageText.includes("maintenance")) {
-        sendLocationMessage(senderID);
+        sendMaintenanceMessage(senderID);
     } else if(messageText.includes("Maintenance")) {
-        sendLocationMessage(senderID);
+        sendMaintenanceMessage(senderID);
     }
     
     
