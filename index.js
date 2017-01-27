@@ -339,12 +339,6 @@ if (messageText) {
       case 'account linking':
         sendAccountLinking(senderID);
         break;
-
-      default:
-        if (!quickReplyPayload){
-            sendStartMessage(senderID);
-        }
-        console.log("default");
     }
    
     
