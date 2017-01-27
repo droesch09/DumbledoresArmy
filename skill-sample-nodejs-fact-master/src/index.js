@@ -56,6 +56,8 @@ var client = new Twitter({
   access_token_secret: '0sFBuI0MumCAKN9LHUFmgmPbbS1tMUmB8E0PQUpYnGvhD'                
 });
 
+console.log(client);
+
 
 exports.handler = function(event, context, callback) {
     var alexa = Alexa.handler(event, context);
