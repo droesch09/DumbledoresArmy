@@ -280,6 +280,7 @@ function receivedMessage(event) {
   } else if (messageAttachments) {
     sendTextMessage(senderID, "Oh. Darauf antworten wir dir am besten persönlich. Wir werden uns schnellstmöglich bei dir melden.");
   }
+}
 
 //TODO: IF else 
 
