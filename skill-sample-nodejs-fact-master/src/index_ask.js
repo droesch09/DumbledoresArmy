@@ -21,7 +21,6 @@ var languageStrings = {
             "SKILL_NAME" : "About Me Facts",
             "GET_FACT_MESSAGE" : "Here's your fact: ",
 			"WELCOME_MESSAGE" : "This is your Porsche Assistant. How may I help you?",
-			"DUMBLEDORE" : "DUMBLEDORE! Dumbledore! Dumbledore!",
 			"LOCATION": [
 			"I don't know where I am right now, we still need to connect me to the raspberry pi.",
 			"I don't know either, sorry. Come get me please."
@@ -67,7 +66,7 @@ var handlers = {
         var answerIdx = Math.floor(Math.random() * answerArr.length);
         var randomAns = answerArr[answerIdx];
 
-        this.emit(':tell', randomAns);
+        this.emit(':ask', randomAns,randomAns);
     },
     
     'AboutYouIntent': function () {
@@ -75,7 +74,7 @@ var handlers = {
         var answerIdx = Math.floor(Math.random() * answerArr.length);
         var randomAns = answerArr[answerIdx];
 
-        this.emit(':tell', randomAns);
+        this.emit(':ask', randomAns,randomAns);
     },
 	
     'LocationIntent': function () {
@@ -83,13 +82,8 @@ var handlers = {
         var answerIdx = Math.floor(Math.random() * answerArr.length);
         var randomAns = answerArr[answerIdx];
 
-        this.emit(':tell', randomAns);
+        this.emit(':ask', randomAns,randomAns);
     },
-    
-    'DumbledoreIntent': function () {
-        this.emit(':tell', this.t("DUMBLEDORE"));
-    },
-    
     
     'AMAZON.HelpIntent': function () {
         var speechOutput = this.t("HELP_MESSAGE");
