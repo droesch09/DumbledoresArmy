@@ -1,0 +1,11 @@
+Tutorial Skill anlegen:
+https://developer.amazon.com/blogs/post/Tx3DVGG0K0TPUGQ/New-Alexa-Skills-Kit-Template:-Step-by-Step-Guide-to-Build-a-Fact-Skill
+
+Tutorial Alexa auf Pi:
+https://github.com/alexa/alexa-avs-sample-app/wiki/Raspberry-Pi
+
+Skills bearbeiten
+https://developer.amazon.com/edw/home.html#/skills/list
+
+Lambda Function bearbeiten
+https://console.aws.amazon.com/lambda/home?region=us-east-1#/functions?display=list
