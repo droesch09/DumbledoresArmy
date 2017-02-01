@@ -1,0 +1,34 @@
+{"intents":
+ [
+  {
+    "intent" : "AboutYouIntent"
+  },
+     {
+    "intent" : "SwabianIntent"
+  },
+   {
+    "intent" : "WarmUpIntent"
+  },   
+   {
+    "intent" : "ShowOffIntent"
+  },
+   {
+    "intent" : "LocationIntent"
+  },
+   {
+    "intent" : "PlaudernIntent"
+  },   
+   {
+    "intent" : "DumbledoreIntent"
+  },
+  {
+  	"intent" :  "AMAZON.HelpIntent"
+  },
+  {
+  	"intent" :  "AMAZON.StopIntent"
+  },
+  {
+  	"intent" :  "AMAZON.CancelIntent"
+  }
+]
+}

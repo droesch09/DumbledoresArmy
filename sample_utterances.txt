@@ -1,0 +1,52 @@
+AboutYouIntent What's your name
+AboutYouIntent Who are you
+AboutYouIntent Introduce yourself
+AboutYouIntent Please introduce yourself
+AboutYouIntent Tell us about yourself
+AboutYouIntent Tell me about yourself
+AboutYouIntent Have we met
+AboutYouIntent I am NAME
+AboutYouIntent I want to get to know you
+AboutYouIntent Tell me about you
+AboutYouIntent What's your story
+AboutYouIntent you are who
+WarmUpIntent I am freezing
+WarmUpIntent It's cold
+WarmUpIntent It's too cold
+WarmUpIntent It's too cold 
+LocationIntent Where are you
+LocationIntent Are you close
+LocationIntent where is your location
+LocationIntent where are you parked
+LocationIntent where are you located
+LocationIntent Where did I leave you
+LocationIntent I can't find you
+LocationIntent I don't see you
+PlaudernIntent I am bored
+PlaudernIntent Talk to me
+PlaudernIntent Talk to me I am bored
+PlaudernIntent How are you
+PlaudernIntent How are you today
+PlaudernIntent How are you feeling
+PlaudernIntent How do you feel today
+PlaudernIntent How are you doing
+PlaudernIntent How you doing
+PlaudernIntent How you doing today
+PlaudernIntent Plaudern
+ShowOffIntent What is the fastest we have ever driven
+ShowOffIntent What is the fastest speed we have ever gone
+ShowOffIntent What is the fastest we have ever gone
+ShowOffIntent what is your fastest speed
+ShowOffIntent what is our high speed
+ShowOffIntent what is our speed record
+ShowOffIntent what is the fastest we have ever been together
+DumbledoreIntent Harry potter
+DumbledoreIntent Whos the best
+DumbledoreIntent whos your favourite
+DumbledoreIntent hermione
+DumbledoreIntent army
+SwabianIntent do you speak swabian
+SwabianIntent swabian
+SwabianIntent schwaebisch
+SwabianIntent can you speak swabian
+SwabianIntent can you speak schwaebisch
