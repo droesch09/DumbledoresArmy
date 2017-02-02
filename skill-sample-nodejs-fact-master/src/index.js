@@ -2,15 +2,17 @@
 var Alexa = require('alexa-sdk');
 var APP_ID = undefined;  // TODO replace with your app ID (OPTIONAL).
 var Twitter = require('twitter');
+var http = require('http');
+
+
 var languageStrings = {
     
 
     "en-US": {
         "translation": {
             "ABOUT_ME": [
-                "Hi, I am your Porsche 918 Spyder.",
-                "Hi, it's me, your Porsche 918 Spyder, I love you.",
-                "I am your Porsche 918 Spyder, I am brand new.",
+                "Hi, it's me, your Porsche 918. I love you.",
+                "I am your Porsche 918, I am brand new.",
                 "I am your Porsche. I am a 918 model, I am very rare.  Only 918 units where ever built. I was produced in Zuffenhausen, a beautiful area in Stuttgart. "
             ],
             "WARM_UP": [
@@ -18,9 +20,10 @@ var languageStrings = {
                 "Yeah, I was gonna say that myself. I will turn on seat and steering wheel heating for you.",
                 "I think so too. Let me help you with that. Activating seat heating."
             ],
-			
-			"SHOW_OFF": "We have had lots of speedy times together. But the day we hit 330 was really special.",
-			"PLAUDERN": "Sorry, i am a bit tired today because I stayed up all night coding.",
+			"SWABIAN" : "Hanoi",
+			"SHOW_OFF": "We have had lots of speedy times together. But the day we hit 330 was really special. Is there aynthing else you would like to know?",
+			"SHOW_OFF_REPROMPT": "Is there aynthing else you would like to know?",
+            "PLAUDERN": "Sorry, i am a bit tired today because I stayed up all night coding.",
             "SKILL_NAME" : "About Me Facts",
             "GET_FACT_MESSAGE" : "Here's your fact: ",
 			"WELCOME_MESSAGE" : "This is your Porsche Assistant. How may I help you?",
@@ -80,6 +83,19 @@ var handlers = {
         var answerIdx = Math.floor(Math.random() * answerArr.length);
         var randomAns = answerArr[answerIdx];
 
+        http.get('http://twitter.com', function (response) { console.log("TWITTER GET "); console.log(response); })
+
+        client.get('statuses/user_timeline', { screen_name: "darmy2017"}, function(error, tweets, response) {
+            if (!error) { 
+                console.log(tweets);
+            }
+            else
+            {
+                console.log(error); 
+            }
+            console.log(response);
+        });
+
         client.post('statuses/update', {status: 'I Love Twitter'+ Date.now()})
         .then(function (tweet) {
             console.log(tweet);
@@ -115,7 +131,13 @@ var handlers = {
         this.emit(':tell', this.t("PLAUDERN"));
     },
      'ShowOffIntent': function () {
-        this.emit(':tell', this.t("SHOW_OFF"));
+        var speechOutput = this.t("SHOW_OFF");
+        var reprompt = this.t("SHOW_OFF_REPROMPT");
+        this.emit(':ask', speechOutput, reprompt);
+    },
+    
+    'SwabianIntent': function () {
+        this.emit(':tell', this.t("SWABIAN"));
     },
     
     'AMAZON.HelpIntent': function () {

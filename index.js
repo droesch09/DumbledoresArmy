@@ -356,7 +356,7 @@ if (messageText) {
    */
     
     //new
-    if (messageText.includes("Weissach") || (messageText.includes("weissach"))) {
+    if (messageText.includes("Weissach") || (messageText.includes("Weissach"))) {
         sendWeissachMessage(senderID);
     } else if (messageText.includes("see you") || (messageText.includes("See you"))){
        sendWhereAreYouMessage(senderID);
